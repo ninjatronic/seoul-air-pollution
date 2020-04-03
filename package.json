@@ -2,12 +2,11 @@
   "name": "seoul-air-pollution",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for seoul-air-pollution goes here",
+  "description": "Visualizing air pollution data in Seoul",
   "repository": "",
-  "license": "MIT",
-  "author": "",
+  "license": "CC BY-SA 4.0",
+  "author": "Pete Martin <petemartinuk@gmail.com> (https://github.com/ninjatronic)",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {
