@@ -16,6 +16,13 @@ module('Unit | Route | application', function(hooks) {
     });
   });
 
+  test('the model hook returns stations', function(assert) {
+    let route = this.owner.lookup('route:application');
+    return route.model().then((result) => {
+      assert.ok(result.stations.length);
+    });
+  });
+
   test('the setupController hook sets the geojson property on the controller', function(assert) {
     let route = this.owner.lookup('route:application');
     let controller = this.owner.lookup('controller:application');
@@ -24,5 +31,15 @@ module('Unit | Route | application', function(hooks) {
     route.setupController(controller, model);
 
     assert.equal(controller.geoJson, 'geoJson');
+  });
+
+  test('the setupController hook sets the model on the controller', function(assert) {
+    let route = this.owner.lookup('route:application');
+    let controller = this.owner.lookup('controller:application');
+    let model = {geoJson: 'geoJson', stations: 'stations'};
+
+    route.setupController(controller, model);
+
+    assert.equal(controller.model, 'stations');
   });
 });

@@ -1,7 +1,6 @@
 <div class={{@class}} id={{@id}} {{did-insert this.renderMap}}>
   <svg {{on 'click' this.click}} role='button'>
-    {{#each this.features as |feature|}}
-      {{yield feature}}
-    {{/each}}
+    {{yield this.features this.path this.d3Projection}}
   </svg>
 </div>
+{{this.path}}

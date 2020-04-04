@@ -10,5 +10,6 @@ module('Acceptance | index', function(hooks) {
 
     assert.equal(currentURL(), '/');
     assert.ok(document.querySelectorAll('#map svg path').length);
+    assert.ok(document.querySelectorAll('#map svg rect').length);
   });
 });

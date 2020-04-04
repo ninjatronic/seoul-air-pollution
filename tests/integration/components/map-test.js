@@ -220,21 +220,23 @@ module('Integration | Component | map', function(hooks) {
         @scale={{scale}}
         @projection={{projection}}
         @geoJson={{geoJson}}
-        as |feature|>
-        <text>
-          <tspan>
-            {{feature.d}}
-          </tspan>
-          <tspan>
-            {{feature.centroid}}
-          </tspan>
-          <tspan>
-            {{feature.centroidX}}
-          </tspan>
-          <tspan>
-            {{feature.centroidY}}
-          </tspan>
-        </text>
+        as |features path|>
+          {{#each features as |feature|}}
+            <text>
+              <tspan>
+                {{feature.d}}
+              </tspan>
+              <tspan>
+                {{feature.centroid}}
+              </tspan>
+              <tspan>
+                {{feature.centroidX}}
+              </tspan>
+              <tspan>
+                {{feature.centroidY}}
+              </tspan>
+            </text>
+          {{/each}}
       </Map>
     `);
 

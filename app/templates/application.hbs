@@ -5,8 +5,16 @@
     @scale={{this.scale}}
     @geoJson={{this.geoJson}}
     @projection='geoMercator'
-    as |feature|>
-      <MapFeature @feature={{feature}}/>
+    as |features path projection|>
+      {{#each features as |feature|}}
+        <MapFeature @feature={{feature}}/>
+      {{/each}}
+      {{#each this.model as |station|}}
+        <StationFeature
+          @station={{station}}
+          @path={{path}}
+          @projection={{projection}}/>
+      {{/each}}
   </SeoulMap>
   {{outlet}}
 </div>

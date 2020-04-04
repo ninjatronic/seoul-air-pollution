@@ -45,6 +45,7 @@
   stroke-width:1;
 }
 
-#map circle.center {
-  fill: #CC2222;
+#map rect.station {
+  stroke: #DA3E52;
+  fill: #DA3E52;
 }
