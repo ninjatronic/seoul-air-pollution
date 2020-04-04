@@ -1,5 +1,12 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class='container'>
+  <SeoulMap @class='' @id='map'
+    @latitude={{this.latitude}}
+    @longitude={{this.longitude}}
+    @scale={{this.scale}}
+    @geoJson={{this.geoJson}}
+    @projection='geoMercator'
+    as |feature|>
+      <MapFeature @feature={{feature}}/>
+  </SeoulMap>
+  {{outlet}}
+</div>

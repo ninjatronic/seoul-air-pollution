@@ -1,0 +1,7 @@
+<div class={{@class}} id={{@id}} {{did-insert this.renderMap}}>
+  <svg {{on 'click' this.click}} role='button'>
+    {{#each this.features as |feature|}}
+      {{yield feature}}
+    {{/each}}
+  </svg>
+</div>

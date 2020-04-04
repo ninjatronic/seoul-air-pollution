@@ -1,0 +1,50 @@
+.container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.container #map {
+  width: 100%;
+  height: 100%;
+}
+
+.container #map svg {
+  width: 100%;
+  height: 100%;
+}
+
+#map path.water {
+  fill: #81C3D7;
+}
+
+#map path.national-park {
+  fill: #ADF7B6;
+}
+
+#map path.highway {
+  stroke: #BBBBBB;
+  fill-opacity: 0;
+}
+
+#map path.highway.highway-motorway {
+  stroke-width:6;
+}
+
+#map path.highway.highway-trunk {
+  stroke-width:4;
+}
+
+#map path.highway.highway-primary {
+  stroke-width:2;
+}
+
+#map path.highway.highway-secondary {
+  stroke-width:1;
+}
+
+#map circle.center {
+  fill: #CC2222;
+}
