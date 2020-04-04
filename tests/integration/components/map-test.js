@@ -38,15 +38,7 @@ module('Integration | Component | map', function(hooks) {
     window.d3 = {
       projection: () => {
         return {
-          center: () => {
-            return {
-              scale: () => {
-                return {
-                  translate: () => {}
-                };
-              }
-            };
-          }
+          fitExtent: () => {}
         };
       },
       geoPath: geoPath

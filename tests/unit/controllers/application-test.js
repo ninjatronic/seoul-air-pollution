@@ -9,19 +9,22 @@ module('Unit | Controller | application', function(hooks) {
     assert.ok(controller);
   });
 
-  test('it has the correct latitude', function(assert) {
+  test('it has the correct bounds', function(assert) {
     let controller = this.owner.lookup('controller:application');
-    assert.equal(controller.latitude, 126.980);
-  });
-
-  test('it has the correct longitude', function(assert) {
-    let controller = this.owner.lookup('controller:application');
-    assert.equal(controller.longitude, 37.553);
-  });
-
-  test('it has the correct scale', function(assert) {
-    let controller = this.owner.lookup('controller:application');
-    assert.equal(controller.scale, 126000);
+    let bounds = controller.bounds;
+    let coords = [
+      [
+        [126.81365741431686, 37.66354609922539],
+        [127.14634258568316, 37.66354609922539],
+        [127.14634258568316, 37.44302340345467],
+        [126.81365741431686, 37.44302340345467]
+      ]
+    ];
+    assert.equal(bounds.type, 'FeatureCollection');
+    assert.equal(bounds.features.length, 1);
+    assert.equal(bounds.features[0].type, 'Feature');
+    assert.equal(bounds.features[0].geometry.type, 'Polygon');
+    assert.deepEqual(bounds.features[0].geometry.coordinates, coords);
   });
 
 });

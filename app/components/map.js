@@ -8,14 +8,9 @@ import window from 'ember-window-mock';
 export default class MapComponent extends Component {
   @tracked element;
 
-  @computed('args.{latitude,longitude}')
-  get center() {
-    return [this.args.latitude, this.args.longitude];
-  }
-
-  @computed('args.scale')
-  get scale() {
-    return this.args.scale;
+  @computed('args.bounds')
+  get bounds() {
+    return this.args.bounds;
   }
 
   @computed('args.geoJson')
@@ -46,17 +41,12 @@ export default class MapComponent extends Component {
     }
   }
 
-  @computed('width', 'height')
-  get offset() {
-    return [this.width/2, this.height/2]
-  }
-
-  @computed('projection', 'center', 'scale', 'offset')
+  @computed('projection', 'bounds', 'width', 'height')
   get d3Projection() {
+    let width = this.width;
+    let height = this.height;
     return window.d3[this.projection]()
-      .center(this.center)
-      .scale(this.scale)
-      .translate(this.offset);
+      .fitExtent([[0, 0], [width, height]], this.bounds);
   }
 
   @computed('d3Projection')

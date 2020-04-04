@@ -1,8 +1,6 @@
 <div class='container'>
   <SeoulMap @class='' @id='map'
-    @latitude={{this.latitude}}
-    @longitude={{this.longitude}}
-    @scale={{this.scale}}
+    @bounds={{this.bounds}}
     @geoJson={{this.geoJson}}
     @projection='geoMercator'
     as |features path projection|>
